@@ -37,11 +37,22 @@ public class MemberRegistrationTest {
    Logger log;
 
    @Test
-   public void testRegister() throws Exception {
+   public void testRegisterJane() throws Exception {
       Member newMember = new Member();
       newMember.setName("Jane Doe");
       newMember.setEmail("jane@mailinator.com");
       newMember.setPhoneNumber("2125551234");
+      memberRegistration.register(newMember);
+      assertNotNull(newMember.getId());
+      log.info(newMember.getName() + " was persisted with id " + newMember.getId());
+   }
+   
+   @Test
+   public void testRegisterPali() throws Exception {
+      Member newMember = new Member();
+      newMember.setName("Pali Doe");
+      newMember.setEmail("pali@mailinator.com");
+      newMember.setPhoneNumber("2374829138");
       memberRegistration.register(newMember);
       assertNotNull(newMember.getId());
       log.info(newMember.getName() + " was persisted with id " + newMember.getId());
